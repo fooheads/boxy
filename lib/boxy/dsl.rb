@@ -1,28 +1,33 @@
+require 'open-uri'
+require_relative 'command'
+
 module Boxy
   class Dsl
-    def interpret(s)
-      instance_eval(s)
+    def interpret(url)
+      @commands = []
+      instance_eval(open(url).read)
+      @commands
     end
   
-    # This is required to override Kernel.gem
-    def gem(name, args = {})
-      define_node('gem', name, args)
-    end
-  
-    def define_node(type, name, args = {})
-      puts "#{type} '#{name}', #{args.inspect}"
+  private
+
+    def method_missing(sym, *args)
+      add_command(sym, args.shift, args.shift.to_h)
     end
 
     def include(url)
+      Dsl.new.interpret(url)
+    end
 
+    # This is required to override Kernel.gem
+    def gem(name, args = {})
+      add_command(:gem, name, args)
     end
   
-    def method_missing(sym, *args)
-      define_node(sym, args.shift, args)
+    def add_command(type, name, options)
+      @commands << Command.new(type, name, options)
     end
+
   end
 end
 
-if __FILE__ == $0
-  Boxy::Dsl.new.interpret(File.read(ARGV[0]))
-end

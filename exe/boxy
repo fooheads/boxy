@@ -1,3 +1,15 @@
 #!/usr/bin/env ruby
 
-require "boxy"
+require 'boxy'
+require 'table_print'
+
+unless ARGV.size == 2
+  puts "usage: boxy <command> <url>"
+  exit -1
+end
+
+command, url = ARGV
+case command
+when 'validate' then tp Boxy.load_commands(url)
+when 'install' then Boxy.install(Boxy.load_commands(url))
+end
