@@ -16,7 +16,7 @@ module Boxy
     end
   end
 
-  Boxy.register(:luarock, LuarockHandler)
+  Boxy.register(:luarock, LuarockHandler.new)
 end
 
 

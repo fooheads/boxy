@@ -17,21 +17,22 @@ module Boxy
 
   def self.install(commands)
     commands.each do |command|
-      handler = @@handlers[command.type].new
+      handler = @@handlers[command.type]
       Bundler.with_clean_env do
         handler.install(command.name, command.options)
       end
     end
   end
 
-  def self.register(type, command)
+  def self.register(type, handler)
     @@handlers ||= {}
-    @@handlers[type] = command
+    @@handlers[type] = handler
   end
 end
 
 require 'boxy/brew'
 require 'boxy/brew_cask'
+require 'boxy/defaulty'
 require 'boxy/homesick'
 require 'boxy/luarock'
 

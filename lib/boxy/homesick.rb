@@ -19,7 +19,7 @@ module Boxy
     end
   end
 
-  Boxy.register(:homesick, HomesickHandler)
+  Boxy.register(:homesick, HomesickHandler.new)
 end
 
 

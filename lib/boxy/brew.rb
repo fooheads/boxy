@@ -16,5 +16,5 @@ module Boxy
     end
   end
 
-  Boxy.register(:brew, BrewPackageHandler)
+  Boxy.register(:brew, BrewPackageHandler.new)
 end

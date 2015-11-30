@@ -16,6 +16,6 @@ module Boxy
     end
   end
 
-  Boxy.register(:cask, BrewCaskHandler)
+  Boxy.register(:cask, BrewCaskHandler.new)
 end
 
