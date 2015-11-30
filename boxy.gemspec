@@ -6,8 +6,8 @@ require 'boxy/version'
 Gem::Specification.new do |spec|
   spec.name          = "boxy"
   spec.version       = Boxy::VERSION
-  spec.authors       = ["Jon-Erling Dahl"]
-  spec.email         = ["joda@soloduo.se"]
+  spec.authors       = ["Jon-Erling Dahl", "Niclas Nilsson"]
+  spec.email         = ["jon-erling@fooheads.com", "niclas@fooheads.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
