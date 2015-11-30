@@ -1,8 +1,8 @@
 module Boxy
-  class PkgHandler
+  class AppHandler
     def install(name, options)
       unless formula_installed?(name)
-        system "brew install #{name}"
+        system "brew cask install #{name}"
       else
         puts "skipping #{name}, already installed"
       end
@@ -11,10 +11,11 @@ module Boxy
     private
 
     def formula_installed?(name)
-      `brew info #{name} > /dev/null 2>&1`
+      `brew cask info #{name} > /dev/null 2>&1`
       $? == 0
     end
   end
 
-  Boxy.register(:pkg, PkgHandler)
+  Boxy.register(:app, AppHandler)
 end
+

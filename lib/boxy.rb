@@ -23,4 +23,5 @@ module Boxy
 end
 
 require 'boxy/pkg'
+require 'boxy/app'
 
