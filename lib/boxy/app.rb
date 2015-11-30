@@ -1,5 +1,5 @@
 module Boxy
-  class AppHandler
+  class BrewCaskHandler
     def install(name, options)
       unless formula_installed?(name)
         system "brew cask install #{name}"
@@ -16,6 +16,7 @@ module Boxy
     end
   end
 
-  Boxy.register(:app, AppHandler)
+  Boxy.register(:app, BrewCaskHandler)
+  Boxy.register(:application, BrewCaskHandler)
 end
 

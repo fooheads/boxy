@@ -1,5 +1,5 @@
 module Boxy
-  class PkgHandler
+  class BrewPackageHandler
     def install(name, options)
       unless formula_installed?(name)
         system "brew install #{name}"
@@ -16,5 +16,6 @@ module Boxy
     end
   end
 
-  Boxy.register(:pkg, PkgHandler)
+  Boxy.register(:pkg, BrewPackageHandler)
+  Boxy.register(:package, BrewPackageHandler)
 end
