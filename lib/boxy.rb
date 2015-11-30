@@ -4,7 +4,7 @@ require 'bundler'
 
 module Boxy
   def self.load_commands(url)
-    Boxy::Dsl.interpret(url)
+    Boxy::Dsl.interpret(url).uniq
   end
 
   def self.validate(commands)
