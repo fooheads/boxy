@@ -32,4 +32,5 @@ end
 
 require 'boxy/pkg'
 require 'boxy/app'
+require 'boxy/homesick'
 
