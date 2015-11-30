@@ -30,7 +30,8 @@ module Boxy
   end
 end
 
-require 'boxy/pkg'
-require 'boxy/app'
+require 'boxy/brew'
+require 'boxy/brew_cask'
 require 'boxy/homesick'
+require 'boxy/luarock'
 
