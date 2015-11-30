@@ -16,6 +16,5 @@ module Boxy
     end
   end
 
-  Boxy.register(:pkg, BrewPackageHandler)
-  Boxy.register(:package, BrewPackageHandler)
+  Boxy.register(:brew, BrewPackageHandler)
 end
