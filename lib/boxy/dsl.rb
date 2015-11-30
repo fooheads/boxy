@@ -16,7 +16,7 @@ module Boxy
     end
 
     def include(url)
-      Dsl.new.interpret(url)
+      @commands += Dsl.new.interpret(url)
     end
 
     # This is required to override Kernel.gem
