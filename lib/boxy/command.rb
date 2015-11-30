@@ -1,4 +1,4 @@
 module Boxy
-  Command = Struct.new(:type, :name, :options)
+  Command = Struct.new(:type, :name, :options, :valid)
 end
 

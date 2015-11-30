@@ -10,6 +10,6 @@ end
 
 command, url = ARGV
 case command
-when 'validate' then tp Boxy.load_commands(url)
+when 'validate' then tp Boxy.validate(Boxy.load_commands(url))
 when 'install' then Boxy.install(Boxy.load_commands(url))
 end

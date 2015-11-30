@@ -4,8 +4,16 @@ require 'bundler'
 
 module Boxy
   def self.load_commands(url)
-    Boxy::Dsl.new.interpret(url)
+    Boxy::Dsl.interpret(url)
   end
+
+  def self.validate(commands)
+    commands.map do |command|
+      command.valid = !!@@handlers[command.type]
+      command
+    end
+  end
+
 
   def self.install(commands)
     commands.each do |command|
