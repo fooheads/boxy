@@ -6,6 +6,16 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
+
+### First, install some dependencies
+
+```
+xcode-select --install
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+
+
 Add this line to your application's Gemfile:
 
 ```ruby
