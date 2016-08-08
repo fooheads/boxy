@@ -1,6 +1,5 @@
 require 'boxy/version'
 require 'boxy/dsl'
-require 'bundler'
 
 module Boxy
   def self.load_commands(url)
@@ -28,6 +27,16 @@ module Boxy
     @@handlers ||= {}
     @@handlers[type] = handler
   end
+
+  def with_clean_env(&block)
+    begin
+      require 'bundler'
+      Bundler.with_clean_env(&block)
+    rescue
+      yield
+    end
+  end
+
 end
 
 require 'boxy/brew'
