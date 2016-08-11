@@ -5,4 +5,5 @@ gemspec
 
 gem 'pry'
 gem 'defaulty', github: 'fooheads/defaulty', branch: 'master'
+gem 'mkdirs', github: 'fooheads/mkdirs', branch: 'master'
 
