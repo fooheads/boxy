@@ -16,7 +16,7 @@ module Boxy
 
 
   def self.install(commands)
-    ensure_xcode_installed
+    ensure_homebrew_installed
 
     commands.each do |command|
       handler = @@handlers[command.type]
@@ -33,15 +33,14 @@ module Boxy
 
   private
 
-  def self.ensure_xcode_installed
-    system 'xcode-select -p'
-    installed = $?.exitstatus
+
+  def self.ensure_homebrew_installed
+    installed = system 'which brew'
     if not installed
       cli = HighLine.new
-      do_install = cli.agree 'Xcode is not installed, would you like to install it now? (y/n):'
+      do_install = cli.agree 'Homebrew is not installed, would you like to install it now? (y/n):'
       if do_install
-        system 'xcode-select --install'
-	cli.ask 'Press enter to continue'
+        system '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
       else
         exit -1
       end
@@ -52,7 +51,7 @@ module Boxy
     begin
       require 'bundler'
       Bundler.with_clean_env(&block)
-    rescue
+    rescue LoadError
       yield
     end
   end
