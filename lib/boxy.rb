@@ -60,6 +60,7 @@ end
 
 require 'boxy/brew'
 require 'boxy/brew_cask'
+require 'boxy/brew_tap'
 require 'boxy/defaulty'
 require 'boxy/homesick'
 require 'boxy/luarock'
