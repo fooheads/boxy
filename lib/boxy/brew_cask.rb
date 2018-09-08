@@ -1,5 +1,8 @@
 module Boxy
   class BrewCaskHandler
+    @@casks ||= `brew cask list`.split
+    # puts "Casks: #{@@casks.inspect}"
+
     def install(name, options)
       unless formula_installed?(name)
         system "brew cask install #{name}"
@@ -11,8 +14,7 @@ module Boxy
     private
 
     def formula_installed?(name)
-      `brew cask list #{name} > /dev/null 2>&1`
-      $? == 0
+      @@casks.include?(name)
     end
   end
 
