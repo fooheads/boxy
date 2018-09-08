@@ -6,7 +6,6 @@ module Boxy
     def install(name, options)
       unless formula_installed?(name)
         system "brew install #{name}"
-        system "brew linkapps #{name}"
       else
         puts "skipping #{name}, already installed"
       end
